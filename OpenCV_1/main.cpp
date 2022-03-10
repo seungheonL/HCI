@@ -72,7 +72,7 @@ int main()
 	// 4-i
 	Mat stuff_color_1_gray; // stuff_color_1의 흑백 이미지를 저장하기 위한 Mat 변수 생성
 	cvtColor(stuff_color_1, stuff_color_1_gray, COLOR_BGR2GRAY); // cvtColor() 함수를 이용하여 gray-scale로 변환해준다.
-	result = cpixel.GS_LUT_basic_contrast_brightness(stuff_color_1_gray, 0.8, 2); // contrast와 brightness의 수치를 적절히 결정하여 LUT를 만든 후 이미지를 변환한다.
+	result = cpixel.GS_LUT_basic_contrast_brightness(stuff_color_1_gray, 2.4, 5); // contrast와 brightness의 수치를 적절히 결정하여 LUT를 만든 후 이미지를 변환한다.
 
 	imshow("Contrast & brightness adjustment by LUT", result); // Output 이미지 출력
 	imwrite("result/result4-i.png", result); // Output 이미지를 내 프로젝트에 별도로 저장
