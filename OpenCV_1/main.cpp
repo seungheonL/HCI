@@ -125,6 +125,8 @@ int main()
 	}
 
 	imshow("result", result); // 상하반전된 이미지 출력
+	imwrite("result/lenna_upside_down.png", result); // Output 이미지를 내 프로젝트에 별도로 저장
+
 	waitKey();
 
 	return 0;
