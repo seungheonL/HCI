@@ -1,8 +1,10 @@
 #pragma once
+#include <iostream>
 #include <opencv2/opencv.hpp>
 #include "Pixel.h"
 
 using namespace cv;
+using namespace std;
 
 int main()
 {
@@ -92,6 +94,38 @@ int main()
 	imwrite("result/result4-ii.png", result); // Output 이미지를 내 프로젝트에 별도로 저장
 
 	waitKey(); // Output 이미지를 관찰하기 위해 별도의 입력이 있을 때까지 기다린다.
+
+	// lenna 상하반전
+	result = imread("image/lenna.png", 1); // lenna와 rows, cols를 맞추기 위해 임시로 생성
+
+	// Mat 객체의 행과 열의 수를 rows와 cols 필드로 접근할 수 있다.
+	for (int i = 0; i < result.rows; i++)
+	{
+		for (int j = 0; j < result.cols; j++)
+		{
+			result.at<Vec3b>(i, j) = Vec3b(0, 0, 0); // lenna의 원본 이미지를 없애기 위해 검정색으로 바꾸어준다.
+		}
+	}
+
+	imshow("result", result); // 검정색으로 바꾼 이미지 출력
+	waitKey();
+
+	cout << lenna.rows << " " << lenna.cols << endl; // lenna의 rows, cols 출력. 두 값 모두 512임을 확인하였다.
+
+	for (int i = 0; i < lenna.rows; i++)
+	{
+		for (int j = 0; j < lenna.cols; j++)
+		{
+			uchar b = lenna.at<Vec3b>(i, j)[0]; // 0번째 요소가 blue
+			uchar g = lenna.at<Vec3b>(i, j)[1]; // 1번째 요소가 green
+			uchar r = lenna.at<Vec3b>(i, j)[2]; // 2번째 요소가 red
+
+			result.at<Vec3b>(512 - i - 1, j) = Vec3b(b, g, r); // 상하반전 적용
+		}
+	}
+
+	imshow("result", result); // 상하반전된 이미지 출력
+	waitKey();
 
 	return 0;
 }
