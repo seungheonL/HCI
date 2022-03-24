@@ -51,6 +51,18 @@
     <ClCompile Include="2-iv.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="2-v.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="2-vi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="2-vii.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="2-viii.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h">
