@@ -15,8 +15,10 @@ int main() {
 
 		imshow("camera", img); // 영상 출력
 
-		if (waitKey(1) == 27)
+		if (waitKey(1) == 27) // ESC 누르면 종료
+		{
 			break;
+		}
 	}
 
 	imshow("result", img); // 마지막으로 찍힌 프레임 출력

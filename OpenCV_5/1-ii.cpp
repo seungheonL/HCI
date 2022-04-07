@@ -22,8 +22,10 @@ int main() {
 
 		imshow("result", result); // template matching한 결과 출력
 
-		if (waitKey(1) == 27)
+		if (waitKey(1) == 27) // ESC 누르면 종료
+		{
 			break;
+		}
 	}
 
 	imwrite("result/1_ii_original.png", img); // 원본 이미지 저장
