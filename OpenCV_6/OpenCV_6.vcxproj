@@ -142,11 +142,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="3.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="Filter.cpp" />
     <ClCompile Include="ImageAnalysis.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Morph.cpp" />
     <ClCompile Include="Pixel.cpp" />
     <ClCompile Include="Util.cpp" />
