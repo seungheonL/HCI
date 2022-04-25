@@ -66,11 +66,11 @@ int main()
 		imshow("HAND_MASK", HAND_MASK);
 
 		Mat Mask = Origin_frame + HAND_MASK;
-		imshow("mask", Mask);
+		//imshow("mask", Mask);
 
 		Mat YCrCb;
 		cvtColor(Mask, YCrCb, CV_BGR2YCrCb);
-		imshow("YCrCb", YCrCb);
+		//imshow("YCrCb", YCrCb);
 
 		if (waitKey(1) == 27)
 		{
@@ -79,18 +79,18 @@ int main()
 
 		Mat Skin_Area;
 		inRange(YCrCb, Scalar(0, 130, 90), Scalar(255, 168, 130), Skin_Area);
-		imshow("range", Skin_Area);
+		//imshow("range", Skin_Area);
 
 		Mat Mask_gray;
 		cvtColor(Mask, Mask_gray, CV_BGR2GRAY);
-		imshow("Origin_gray", Mask_gray);
+		//imshow("Origin_gray", Mask_gray);
 
 		Mat Skin_gray = Mask_gray + (~Skin_Area);
-		imshow("Skin_gray", Skin_gray);
+		//imshow("Skin_gray", Skin_gray);
 
 		Mat thrsh_skin_gray;
 		threshold(Skin_gray, thrsh_skin_gray, 200, 255, THRESH_BINARY);
-		imshow("thrsh_skin_gray", thrsh_skin_gray);
+		//imshow("thrsh_skin_gray", thrsh_skin_gray);
 		Mat tild_thrsh_skin_gray = ~thrsh_skin_gray;
 
 		erode(tild_thrsh_skin_gray, tild_thrsh_skin_gray, Mat(3, 3, CV_8U, Scalar(1)), Point(-1, -1), 2);
@@ -102,14 +102,14 @@ int main()
 
 		int radius = 40;
 		circle(Origin_frame, center, (int)(radius + 0.5), Scalar(130, 255, 100), 2);
-		imshow("Origin_frame", Origin_frame);
+		//imshow("Origin_frame", Origin_frame);
 
 		Mat Skin_gray_clone = Skin_gray.clone();
 		circle(Skin_gray_clone, center, (int)(radius + 0.5), Scalar(0, 0, 0), -1);
 		imshow("Skin_gray_clone", Skin_gray_clone);
 
 		Mat Sub = Skin_gray - Skin_gray_clone;
-		imshow("Sub", Sub);
+		//imshow("Sub", Sub);
 
 		Mat CannyEdge;
 		Canny(Sub, CannyEdge, 40, 110);
